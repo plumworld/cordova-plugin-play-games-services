@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.berriart.cordova.plugins;
+package com.plumworld.cordova.plugins;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -32,7 +32,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
-import com.berriart.cordova.plugins.GameHelper.GameHelperListener;
+import com.plumworld.cordova.plugins.GameHelper.GameHelperListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.games.Games;
@@ -40,7 +40,7 @@ import com.google.android.gms.games.Player;
 
 public class PlayGamesServices extends CordovaPlugin implements GameHelperListener {
 
-    private static final String LOGTAG = "berriart-CordovaPlayGamesServices";
+    private static final String LOGTAG = "plumworld-CordovaPlayGamesServices";
 
     private static final String ACTION_AUTH = "auth";
     private static final String ACTION_SIGN_OUT = "signOut";
