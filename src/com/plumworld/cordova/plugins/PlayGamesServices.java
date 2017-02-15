@@ -188,7 +188,7 @@ public class PlayGamesServices extends CordovaPlugin implements GameHelperListen
                     } else {
                         callbackContext.error("executeSubmitScore: not yet signed in");
                     }
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     Log.w(LOGTAG, "executeSubmitScore: unexpected error", e);
                     callbackContext.error("executeSubmitScore: error while submitting score");
                 }
@@ -204,14 +204,19 @@ public class PlayGamesServices extends CordovaPlugin implements GameHelperListen
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
-                if (gameHelper.isSignedIn()) {
-                    Intent allLeaderboardsIntent = Games.Leaderboards.getAllLeaderboardsIntent(gameHelper.getApiClient());
-                    cordova.startActivityForResult(plugin, allLeaderboardsIntent, ACTIVITY_CODE_SHOW_LEADERBOARD);
-                    callbackContext.success();
-                } else {
-                    Log.w(LOGTAG, "executeShowAllLeaderboards: not yet signed in");
-                    callbackContext.error("executeShowAllLeaderboards: not yet signed in");
+                try {
+                    if (gameHelper.isSignedIn()) {
+                        Intent allLeaderboardsIntent = Games.Leaderboards.getAllLeaderboardsIntent(gameHelper.getApiClient());
+                        cordova.startActivityForResult(plugin, allLeaderboardsIntent, ACTIVITY_CODE_SHOW_LEADERBOARD);
+                        callbackContext.success();
+                    } else {
+                        Log.w(LOGTAG, "executeShowAllLeaderboards: not yet signed in");
+                        callbackContext.error("executeShowAllLeaderboards: not yet signed in");
+                    }
+                }
+                catch(Exception e){
+                    Log.w(LOGTAG, "executeShowAllLeaderboards: unexpected error", e);
+                    callbackContext.error("executeShowAllLeaderboards: error while showing leaderboards");
                 }
             }
         });
@@ -249,12 +254,18 @@ public class PlayGamesServices extends CordovaPlugin implements GameHelperListen
             @Override
             public void run() {
 
-                if (gameHelper.isSignedIn()) {
-                    Games.Achievements.unlock(gameHelper.getApiClient(), options.optString("achievementId"));
-                    callbackContext.success();
-                } else {
-                    Log.w(LOGTAG, "executeUnlockAchievement: not yet signed in");
-                    callbackContext.error("executeUnlockAchievement: not yet signed in");
+                try {
+                    if (gameHelper.isSignedIn()) {
+                        Games.Achievements.unlock(gameHelper.getApiClient(), options.optString("achievementId"));
+                        callbackContext.success();
+                    } else {
+                        Log.w(LOGTAG, "executeUnlockAchievement: not yet signed in");
+                        callbackContext.error("executeUnlockAchievement: not yet signed in");
+                    }
+                }
+                catch (Exception e) {
+                    Log.w(LOGTAG, "executeUnlockAchievement: unexpected error", e);
+                    callbackContext.error("executeUnlockAchievement: error while unlocking achievement");
                 }
             }
         });
@@ -285,14 +296,19 @@ public class PlayGamesServices extends CordovaPlugin implements GameHelperListen
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
-                if (gameHelper.isSignedIn()) {
-                    Intent achievementsIntent = Games.Achievements.getAchievementsIntent(gameHelper.getApiClient());
-                    cordova.startActivityForResult(plugin, achievementsIntent, ACTIVITY_CODE_SHOW_ACHIEVEMENTS);
-                    callbackContext.success();
-                } else {
-                    Log.w(LOGTAG, "executeShowAchievements: not yet signed in");
-                    callbackContext.error("executeShowAchievements: not yet signed in");
+                try {
+                    if (gameHelper.isSignedIn()) {
+                        Intent achievementsIntent = Games.Achievements.getAchievementsIntent(gameHelper.getApiClient());
+                        cordova.startActivityForResult(plugin, achievementsIntent, ACTIVITY_CODE_SHOW_ACHIEVEMENTS);
+                        callbackContext.success();
+                    } else {
+                        Log.w(LOGTAG, "executeShowAchievements: not yet signed in");
+                        callbackContext.error("executeShowAchievements: not yet signed in");
+                    }
+                }
+                catch(Exception e){
+                    Log.w(LOGTAG, "executeShowAchievements: unexpected error", e);
+                    callbackContext.error("executeShowAchievements: error while showing achievements");
                 }
             }
         });

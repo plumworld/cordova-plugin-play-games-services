@@ -1,9 +1,9 @@
 cordova-plugin-play-games-services
 ==================================
 
-Cordova Plugin For Google Play Games Services (Fork of [ptgamr/cordova-google-play-game](https://github.com/ptgamr/cordova-google-play-game))
+Cordova Plugin For Google Play Games Services (Fork of [artberri/cordova-google-play-game](https://github.com/artberri/cordova-google-play-game))
 
-Modified to include the new Google Play Services with com.google.android.gms:play-services and avoid some compiling errors. (Available also through npm, new Plugin Registry Format)
+Modified to add exception handling.
 
 ### Before you start
 

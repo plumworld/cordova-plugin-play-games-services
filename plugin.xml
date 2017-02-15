@@ -10,8 +10,8 @@
     <author>Alberto Varela</author>
     <license>MIT</license>
     <keywords>google, play, game, cordova, android</keywords>
-    <repo>https://github.com/artberri/cordova-plugin-play-games-services.git</repo>
-    <issue>https://github.com/artberri/cordova-plugin-play-games-services/issues</issue>
+    <repo>https://github.com/plumworld/cordova-plugin-play-games-services.git</repo>
+    <issue>https://github.com/plumworld/cordova-plugin-play-games-services/issues</issue>
 
     <engines>
         <engine name="cordova" version=">=4.0.0" />
@@ -30,7 +30,7 @@
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="PlayGamesServices">
-                <param name="android-package" value="com.berriart.cordova.plugins.PlayGamesServices"/>
+                <param name="android-package" value="com.plumworld.cordova.plugins.PlayGamesServices"/>
             </feature>
         </config-file>
 
@@ -49,10 +49,10 @@
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
         </config-file>
 
-        <source-file src="src/com/berriart/cordova/plugins/PlayGamesServices.java" target-dir="src/com/berriart/cordova/plugins/" />
-        <source-file src="src/com/berriart/cordova/plugins/BaseGameUtils.java" target-dir="src/com/berriart/cordova/plugins/" />
-        <source-file src="src/com/berriart/cordova/plugins/BaseGameActivity.java" target-dir="src/com/berriart/cordova/plugins/" />
-        <source-file src="src/com/berriart/cordova/plugins/GameHelper.java" target-dir="src/com/berriart/cordova/plugins/" />
-        <source-file src="src/com/berriart/cordova/plugins/GameHelperUtils.java" target-dir="src/com/berriart/cordova/plugins/" />
+        <source-file src="src/com/plumworld/cordova/plugins/PlayGamesServices.java" target-dir="src/com/plumworld/cordova/plugins/" />
+        <source-file src="src/com/plumworld/cordova/plugins/BaseGameUtils.java" target-dir="src/com/plumworld/cordova/plugins/" />
+        <source-file src="src/com/plumworld/cordova/plugins/BaseGameActivity.java" target-dir="src/com/plumworld/cordova/plugins/" />
+        <source-file src="src/com/plumworld/cordova/plugins/GameHelper.java" target-dir="src/com/plumworld/cordova/plugins/" />
+        <source-file src="src/com/plumworld/cordova/plugins/GameHelperUtils.java" target-dir="src/com/plumworld/cordova/plugins/" />
      </platform>
 </plugin>
